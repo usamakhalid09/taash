@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Taash – by Usama Khalid</title>
+
+<!-- PWA -->
+
+<meta name="theme-color" content="#c9a84c">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<script>
+// Inline manifest injection
+const manifestData = {
+  name: "Taash – by Usama Khalid",
+  short_name: "Taash",
+  description: "Classic Pakistani card games: Bhabhi & Rang",
+  start_url: "./",
+  display: "standalone",
+  orientation: "portrait",
+  background_color: "#0d1117",
+  theme_color: "#c9a84c",
+  icons: [
+    { src: "data:image/png;base64,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", sizes: "192x192", type: "image/png", purpose: "any maskable" },
+    { src: "data:image/png;base64,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", sizes: "512x512", type: "image/png", purpose: "any maskable" }
+  ]
+};
+const blob = new Blob([JSON.stringify(manifestData)], {type:'application/json'});
+const manifestURL = URL.createObjectURL(blob);
+const link = document.createElement('link');
+link.rel = 'manifest'; link.href = manifestURL;
+document.head.appendChild(link);
+</script>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Taash">
+
+
+
+
+
+
+
+<!-- SEO / Social -->
+<meta name="description" content="Classic Pakistani card games: Bhabhi & Rang. By Usama Khalid.">
+<meta name="author" content="Usama Khalid">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   THEME VARIABLES
+══════════════════════════════════════════ */
+:root { --gold:#c9a84c; --gold2:#e8c97a; --red:#e05c5c; --green:#4caf77; --blue:#5b8dee; --card-w:68px; --card-h:98px; }
+body {
+  --bg:#0d1117; --surface:#161b22; --surface2:#1c2333;
+  --text:#e6e0d4; --muted:#7a7060; --border:#2a2010;
+  --card-bg:#f9f5ef; --card-border:#ddd; --card-text:#222; --card-red:#c0392b;
+  --back-g1:#1a3a5c; --back-g2:#0d1f33; --back-b:#2a5080;
+}
+body.light {
+  --bg:#f4efe3; --surface:#fffdf7; --surface2:#ede8d8;
+  --text:#1e1608; --muted:#7a6a50; --border:#cfc0a0;
+  --card-bg:#fff; --card-border:#bbb; --card-text:#111; --card-red:#b91c1c;
+  --back-g1:#2a5a8c; --back-g2:#183a60; --back-b:#4a80b0;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Crimson Pro',Georgia,serif;
+  min-height:100vh; overflow-x:hidden;
+  transition:background .3s,color .3s;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(30,22,8,.6) 0%,transparent 70%),
+    repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(201,168,76,.012) 40px,rgba(201,168,76,.012) 41px);
+}
+
+/* ── SCREENS ── */
+.screen{ display:none; flex-direction:column; min-height:100vh; }
+.screen.active{ display:flex; }
+
+/* ══════════════════════════════════════════
+   SHARED COMPONENTS
+══════════════════════════════════════════ */
+.tt-wrap{ display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none; }
+.tt-icon{ font-size:15px; line-height:1; }
+.tt-track{ width:36px; height:19px; border-radius:10px; background:var(--surface2); border:1px solid var(--border); position:relative; transition:background .25s; flex-shrink:0; }
+body.light .tt-track{ background:rgba(201,168,76,.25); border-color:var(--gold); }
+.tt-thumb{ position:absolute; top:2px; left:2px; width:13px; height:13px; border-radius:50%; background:var(--muted); transition:all .25s; }
+body.light .tt-thumb{ left:19px; background:var(--gold); }
+
+.top-bar{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px 0; }
+.top-title{ font-family:'Playfair Display',serif; font-size:20px; color:var(--gold); letter-spacing:.08em; }
+.top-right{ display:flex; align-items:center; gap:10px; }
+.top-byline{ font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:var(--gold); letter-spacing:.1em; opacity:.85; }
+.menu-btn{ background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:7px 14px; color:var(--muted); font-family:'Crimson Pro',serif; font-size:13px; cursor:pointer; transition:all .15s; }
+.menu-btn:hover{ color:var(--gold); border-color:var(--gold); }
+.game-footer{ text-align:center; padding:6px 0 4px; font-family:'Playfair Display',serif; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:.18em; opacity:.75; }
+
+/* card face shared */
+.play-card{
+  width:var(--card-w); height:var(--card-h); border-radius:8px;
+  background:var(--card-bg); border:2px solid var(--card-border);
+  position:relative; cursor:pointer; user-select:none;
+  transition:transform .15s,box-shadow .15s,border-color .15s;
+  box-shadow:0 3px 8px rgba(0,0,0,.25);
+  font-family:'Playfair Display',serif; color:var(--card-text);
+}
+.play-card:hover:not(.disabled){ transform:translateY(-12px); box-shadow:0 12px 22px rgba(0,0,0,.35); }
+.play-card.selected{ transform:translateY(-16px); border-color:var(--gold); box-shadow:0 12px 28px rgba(201,168,76,.5); }
+.play-card.disabled{ opacity:.38; cursor:not-allowed; }
+.play-card.red-suit{ color:var(--card-red); }
+.play-card .tl{ position:absolute; top:4px; left:5px; font-size:14px; font-weight:700; line-height:1.1; }
+.play-card .br{ position:absolute; bottom:4px; right:5px; font-size:14px; font-weight:700; transform:rotate(180deg); line-height:1.1; }
+.play-card .mid{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:30px; }
+.play-card.joker-card{ background:linear-gradient(135deg,#1a0533,#0d1f3c); border-color:#8844cc; color:#cc88ff; }
+.play-card.joker-card.joker-red{ background:linear-gradient(135deg,#330515,#1f0d18); border-color:#cc4466; color:#ff88aa; }
+.play-card.joker-card .mid{ font-size:26px; }
+
+.card-back{ width:28px; height:40px; background:linear-gradient(135deg,var(--back-g1),var(--back-g2)); border:2px solid var(--back-b); border-radius:4px; margin-left:-10px; box-shadow:2px 2px 5px rgba(0,0,0,.4); position:relative; overflow:hidden; }
+.card-back:first-child{ margin-left:0; }
+.card-back::after{ content:'♦'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:16px; color:rgba(255,255,255,.09); }
+
+.status-bar{ background:var(--surface2); border:1px solid var(--border); border-radius:9px; padding:9px 14px; text-align:center; font-size:15px; color:var(--text); font-style:italic; min-height:42px; display:flex; align-items:center; justify-content:center; transition:background .3s; }
+.status-bar .hi{ color:var(--gold); font-style:normal; font-weight:600; }
+.status-bar .warn{ color:var(--red); font-style:normal; }
+.status-bar .good{ color:var(--green); font-style:normal; }
+
+.hand-row{ display:flex; flex-wrap:wrap; gap:5px; justify-content:center; }
+.action-row{ display:flex; gap:10px; justify-content:center; }
+.play-btn{ padding:11px 30px; border-radius:9px; font-family:'Playfair Display',serif; font-size:15px; font-weight:700; cursor:pointer; border:none; transition:all .15s; letter-spacing:.05em; background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#0d1117; box-shadow:0 4px 14px rgba(201,168,76,.3); }
+.play-btn:hover:not(:disabled){ transform:translateY(-2px); box-shadow:0 8px 22px rgba(201,168,76,.4); }
+.play-btn:disabled{ opacity:.38; cursor:not-allowed; }
+
+.turn-dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--gold); margin-right:5px; animation:pulse 1s infinite; }
+@keyframes pulse{ 0%,100%{opacity:1}50%{opacity:.25} }
+
+#toast{ position:fixed; top:18px; left:50%; transform:translateX(-50%); background:var(--surface); border:1px solid var(--gold); border-radius:9px; padding:9px 22px; font-family:'Playfair Display',serif; font-size:14px; color:var(--gold); z-index:300; opacity:0; transition:opacity .3s; pointer-events:none; white-space:nowrap; }
+#toast.show{ opacity:1; }
+
+/* gameover */
+.gameover-overlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.82); z-index:200; align-items:center; justify-content:center; }
+.gameover-overlay.active{ display:flex; }
+.gameover-box{ background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:44px 52px; text-align:center; max-width:400px; width:90%; box-shadow:0 30px 80px rgba(0,0,0,.6); transition:background .3s; }
+.go-eyebrow{ font-family:'Playfair Display',serif; font-size:11px; letter-spacing:.28em; color:var(--muted); text-transform:uppercase; margin-bottom:10px; }
+.go-name{ font-family:'Playfair Display',serif; font-size:40px; font-weight:900; color:var(--green); margin-bottom:6px; }
+.go-name.loser{ color:var(--red); }
+.go-label{ font-size:18px; color:var(--muted); font-style:italic; margin-bottom:10px; }
+.go-byline{ font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:var(--gold); letter-spacing:.18em; margin-bottom:28px; opacity:.85; }
+.replay-btn{ background:linear-gradient(135deg,var(--gold),var(--gold2)); border:none; border-radius:10px; padding:13px 38px; font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#0d1117; cursor:pointer; box-shadow:0 4px 20px rgba(201,168,76,.3); transition:all .2s; }
+.replay-btn:hover{ transform:translateY(-2px); box-shadow:0 8px 28px rgba(201,168,76,.4); }
+
+/* setup shared */
+.setup-label{ font-family:'Playfair Display',serif; color:var(--gold); font-size:11px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:10px; display:block; }
+.setup-input{ width:100%; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:var(--text); font-family:'Crimson Pro',serif; font-size:16px; padding:11px 15px; margin-bottom:22px; outline:none; transition:border-color .2s,background .3s; }
+.setup-input:focus{ border-color:var(--gold); }
+.cnt-btns{ display:flex; gap:7px; margin-bottom:22px; }
+.cnt-btn{ flex:1; padding:11px 0; background:var(--bg); border:1px solid var(--border); border-radius:8px; color:var(--muted); font-family:'Playfair Display',serif; font-size:17px; cursor:pointer; transition:all .15s; }
+.cnt-btn:hover{ border-color:var(--gold); color:var(--gold); }
+.cnt-btn.active{ background:var(--gold); color:#0d1117; border-color:var(--gold); }
+.diff-btns{ display:flex; gap:7px; margin-bottom:22px; }
+.diff-btn{ flex:1; padding:10px 0; background:var(--bg); border:1px solid var(--border); border-radius:8px; font-family:'Playfair Display',serif; font-size:13px; cursor:pointer; transition:all .15s; text-align:center; line-height:1.3; color:var(--muted); }
+.diff-btn:hover{ border-color:var(--gold); color:var(--gold); }
+.diff-btn.easy.active{ background:#2a4a2a; color:#6fda6f; border-color:#4caf77; }
+.diff-btn.medium.active{ background:#4a3a10; color:var(--gold2); border-color:var(--gold); }
+.diff-btn.hard.active{ background:#4a1a1a; color:#f08080; border-color:var(--red); }
+.diff-label-main{ font-size:13px; font-weight:700; }
+.diff-label-sub{ font-size:10px; opacity:.7; }
+.rules-toggle{ margin-top:16px; color:var(--muted); font-style:italic; cursor:pointer; font-size:14px; text-decoration:underline; }
+.rules-box{ display:none; margin-top:12px; padding:14px; background:var(--bg); border-radius:8px; border:1px solid var(--border); text-align:left; font-size:14px; line-height:1.85; color:var(--muted); }
+.rules-box.open{ display:block; }
+.rules-box b{ color:var(--gold); font-family:'Playfair Display',serif; }
+.start-btn{ width:100%; padding:15px; background:linear-gradient(135deg,var(--gold),var(--gold2)); border:none; border-radius:10px; color:#0d1117; font-family:'Playfair Display',serif; font-size:19px; font-weight:700; letter-spacing:.1em; cursor:pointer; transition:all .2s; box-shadow:0 4px 20px rgba(201,168,76,.3); margin-bottom:0; }
+.start-btn:hover{ transform:translateY(-2px); box-shadow:0 8px 28px rgba(201,168,76,.4); }
+
+/* opponent panels */
+.opponents-area{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:10px 14px 0; }
+.opponent-panel{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; align-items:center; gap:5px; min-width:110px; transition:all .3s; position:relative; }
+.opponent-panel.active-turn{ border-color:var(--gold); box-shadow:0 0 18px rgba(201,168,76,.18); }
+.opponent-panel.danger{ border-color:var(--red); }
+.opponent-panel.out{ opacity:.38; }
+.opponent-name{ font-family:'Playfair Display',serif; font-size:12px; color:var(--gold); letter-spacing:.04em; text-align:center; }
+.opponent-card-count{ font-size:11px; color:var(--muted); }
+.opp-cards{ display:flex; }
+.badge{ position:absolute; top:-9px; right:-9px; font-family:'Playfair Display',serif; font-size:9px; padding:2px 5px; border-radius:9px; font-weight:700; }
+.badge-danger{ background:var(--red); color:#fff; }
+.badge-out{ background:var(--green); color:#0d1117; }
+.badge-win{ background:var(--gold); color:#0d1117; }
+
+/* player area */
+.player-area{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:9px; transition:background .3s,border-color .3s; margin:0 14px 14px; }
+.player-info-row{ display:flex; align-items:center; justify-content:space-between; }
+.player-label{ font-family:'Playfair Display',serif; font-size:13px; color:var(--gold); letter-spacing:.04em; }
+.player-card-count{ font-size:12px; color:var(--muted); }
+.autocomplete-btn{ padding:10px 28px; border-radius:9px; font-family:'Playfair Display',serif; font-size:14px; font-weight:700; cursor:pointer; letter-spacing:.05em; background:transparent; border:2px solid var(--gold); color:var(--gold); transition:all .15s; }
+.autocomplete-btn:hover{ background:var(--gold); color:#0d1117; }
+
+/* iOS safe area support */
+body { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+.player-area { margin-bottom: calc(14px + env(safe-area-inset-bottom)); }
+
+/* Install banner */
+#install-banner {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
+  background: linear-gradient(135deg, #1c2333, #161b22);
+  border-top: 1px solid #c9a84c;
+  padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
+  flex-direction: row; align-items: center; gap: 12px;
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.5);
+}
+#install-banner.show { display: flex; }
+.install-icon { font-size: 32px; flex-shrink: 0; }
+.install-text { flex: 1; }
+.install-text-title { font-family: 'Playfair Display', serif; font-size: 15px; color: #c9a84c; font-weight: 700; }
+.install-text-sub { font-size: 12px; color: #7a7060; margin-top: 2px; }
+.install-btn { background: linear-gradient(135deg, #c9a84c, #e8c97a); border: none; border-radius: 8px; padding: 10px 18px; font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: #0d1117; cursor: pointer; flex-shrink: 0; }
+.install-dismiss { background: none; border: none; color: #7a7060; font-size: 20px; cursor: pointer; padding: 4px; flex-shrink: 0; }
+
+@media(max-width:480px){
+  :root{ --card-w:54px; --card-h:78px; }
+  .play-card .mid{ font-size:22px; }
+  .play-card .tl,.play-card .br{ font-size:11px; }
+}
+
+/* ══════════════════════════════════════════
+   SCREEN 0 — MAIN HUB
+══════════════════════════════════════════ */
+#hub-screen{
+  align-items:center; justify-content:center;
+  min-height:100vh; padding:40px 20px; text-align:center;
+  position:relative;
+}
+.hub-theme{ position:absolute; top:16px; right:20px; }
+.hub-title{ font-family:'Playfair Display',serif; font-size:clamp(64px,14vw,120px); font-weight:900; color:var(--gold); letter-spacing:.06em; line-height:1; text-shadow:0 0 80px rgba(201,168,76,.25),0 4px 24px rgba(0,0,0,.9); margin-bottom:4px; }
+.hub-subtitle{ font-style:italic; color:var(--muted); font-size:17px; letter-spacing:.15em; margin-bottom:6px; }
+.hub-byline{ font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--gold); letter-spacing:.2em; margin-bottom:52px; text-shadow:0 0 20px rgba(201,168,76,.4); }
+.hub-cards{ display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+.hub-card{
+  background:var(--surface); border:1px solid var(--border); border-radius:18px;
+  padding:36px 40px; width:220px; cursor:pointer;
+  transition:all .2s; box-shadow:0 8px 32px rgba(0,0,0,.3);
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+}
+.hub-card:hover{ transform:translateY(-6px); border-color:var(--gold); box-shadow:0 16px 48px rgba(201,168,76,.2); }
+.hub-card-icon{ font-size:52px; line-height:1; }
+.hub-card-title{ font-family:'Playfair Display',serif; font-size:26px; font-weight:900; color:var(--gold); }
+.hub-card-desc{ font-size:14px; color:var(--muted); font-style:italic; text-align:center; line-height:1.5; }
+.hub-card-suits{ font-size:22px; letter-spacing:.15em; color:var(--muted); }
+.hub-card-suits .r{ color:var(--red); }
+
+/* ══════════════════════════════════════════
+   BHABHI SCREENS
+══════════════════════════════════════════ */
+#bhabhi-setup{
+  align-items:center; justify-content:center;
+  min-height:100vh; padding:40px 20px; text-align:center; position:relative;
+}
+.setup-top{ position:absolute; top:16px; left:20px; right:20px; display:flex; align-items:center; justify-content:space-between; }
+.game-title{ font-family:'Playfair Display',serif; font-size:clamp(48px,10vw,90px); font-weight:900; color:var(--gold); letter-spacing:.06em; line-height:1; text-shadow:0 0 80px rgba(201,168,76,.25),0 4px 24px rgba(0,0,0,.9); margin-bottom:6px; }
+.game-subtitle{ font-style:italic; color:var(--muted); font-size:17px; letter-spacing:.15em; margin-bottom:6px; }
+.game-byline{ font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--gold); letter-spacing:.2em; margin-bottom:48px; text-shadow:0 0 20px rgba(201,168,76,.4); }
+.setup-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:36px 44px; max-width:400px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,.4); transition:background .3s,border-color .3s; }
+
+#bhabhi-game{ padding:14px; gap:10px; }
+.table-area{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px; flex:1; min-height:180px; display:flex; flex-direction:column; gap:10px; transition:background .3s,border-color .3s; margin:0 0; }
+.table-label{ font-family:'Playfair Display',serif; font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); text-align:center; }
+.trick-display{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:flex-end; min-height:110px; }
+.trick-slot{ display:flex; flex-direction:column; align-items:center; gap:4px; }
+.trick-slot-name{ font-size:10px; color:var(--muted); font-style:italic; }
+.t-card{ width:58px; height:82px; border-radius:7px; background:var(--card-bg); border:2px solid var(--card-border); position:relative; box-shadow:0 4px 12px rgba(0,0,0,.25); font-family:'Playfair Display',serif; color:var(--card-text); }
+.t-card.red-suit{ color:var(--card-red); }
+.t-card.thoku-card{ border-color:#888; opacity:.72; }
+.t-card.lead-win{ border-color:var(--gold); box-shadow:0 0 14px rgba(201,168,76,.55); }
+.t-card .tl{ position:absolute; top:3px; left:4px; font-size:12px; font-weight:700; line-height:1.1; }
+.t-card .br{ position:absolute; bottom:3px; right:4px; font-size:12px; font-weight:700; transform:rotate(180deg); line-height:1.1; }
+.t-card .mid{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:24px; }
+.trick-result-bar{ display:none; background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:8px 16px; text-align:center; font-size:14px; font-style:italic; color:var(--text); transition:background .3s; }
+.trick-result-bar.visible{ display:block; }
+.trick-result-bar .hi{ color:var(--gold); font-style:normal; font-weight:600; }
+.trick-result-bar .bad{ color:var(--red); font-style:normal; font-weight:600; }
+#b-continue-btn{ display:none; margin:0 auto; background:linear-gradient(135deg,var(--gold),var(--gold2)); border:none; border-radius:8px; padding:10px 28px; font-family:'Playfair Display',serif; font-size:15px; font-weight:700; color:#0d1117; cursor:pointer; letter-spacing:.06em; box-shadow:0 4px 14px rgba(201,168,76,.3); transition:all .15s; }
+#b-continue-btn.visible{ display:block; }
+#b-continue-btn:hover{ transform:translateY(-1px); }
+
+/* ══════════════════════════════════════════
+   RANG SCREENS
+══════════════════════════════════════════ */
+#rang-setup{
+  align-items:center; justify-content:center;
+  min-height:100vh; padding:40px 20px; text-align:center; position:relative;
+}
+#rang-game{ padding:14px; gap:10px; }
+
+/* Rang discard pile + draw pile */
+.rang-table{
+  background:var(--surface); border:1px solid var(--border); border-radius:14px;
+  padding:16px; display:flex; flex-direction:column; gap:12px;
+  transition:background .3s;
+}
+.rang-piles{ display:flex; gap:24px; justify-content:center; align-items:center; }
+.pile-wrap{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+.pile-label{ font-size:11px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; font-family:'Playfair Display',serif; }
+.draw-pile{
+  width:68px; height:98px; border-radius:8px;
+  background:linear-gradient(135deg,var(--back-g1),var(--back-g2));
+  border:2px solid var(--back-b); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:28px; color:rgba(255,255,255,.15);
+  box-shadow:3px 3px 0 rgba(0,0,0,.3),6px 6px 0 rgba(0,0,0,.2);
+  transition:all .15s; position:relative; user-select:none;
+}
+.draw-pile:hover:not(.disabled){ transform:translateY(-4px); box-shadow:3px 7px 0 rgba(0,0,0,.3),6px 10px 0 rgba(0,0,0,.2); }
+.draw-pile.disabled{ opacity:.5; cursor:not-allowed; }
+.draw-pile-count{ position:absolute; bottom:6px; right:6px; font-family:'Playfair Display',serif; font-size:11px; color:rgba(255,255,255,.5); font-weight:700; }
+.top-discard{ width:68px; height:98px; }
+
+/* suit chooser */
+.suit-chooser{ display:none; background:var(--surface2); border:1px solid var(--border); border-radius:12px; padding:14px 20px; text-align:center; gap:10px; flex-direction:column; }
+.suit-chooser.visible{ display:flex; }
+.suit-chooser-title{ font-family:'Playfair Display',serif; font-size:13px; color:var(--gold); letter-spacing:.1em; }
+.suit-btns{ display:flex; gap:8px; justify-content:center; }
+.suit-btn{ width:52px; height:52px; border-radius:10px; background:var(--bg); border:2px solid var(--border); font-size:26px; cursor:pointer; transition:all .15s; display:flex; align-items:center; justify-content:center; }
+.suit-btn:hover{ border-color:var(--gold); transform:scale(1.1); }
+.suit-btn.red{ color:var(--card-red); }
+
+/* draw indicator */
+.rang-draw-indicator{ text-align:center; font-family:'Playfair Display',serif; font-size:13px; color:var(--red); font-weight:700; min-height:20px; }
+
+/* required suit badge */
+.rang-required{ display:inline-flex; align-items:center; gap:6px; background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:5px 12px; font-family:'Playfair Display',serif; font-size:13px; color:var(--text); }
+.rang-req-suit{ font-size:20px; }
+
+/* ══════════════════════════════════════════
+   RANG OPPONENT showing played card hint
+══════════════════════════════════════════ */
+.opp-played-card{ width:32px; height:44px; border-radius:5px; background:var(--card-bg); border:2px solid var(--card-border); display:flex; align-items:center; justify-content:center; font-size:12px; font-family:'Playfair Display',serif; color:var(--card-text); margin-top:4px; }
+.opp-played-card.red{ color:var(--card-red); }
+.opp-played-card.hidden{ background:linear-gradient(135deg,var(--back-g1),var(--back-g2)); border-color:var(--back-b); color:transparent; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HUB ═══════════════════ -->
+<div id="hub-screen" class="screen active">
+  <div class="hub-theme">
+    <div class="tt-wrap" data-action="toggleTheme">
+      <span class="tt-icon">🌙</span>
+      <div class="tt-track"><div class="tt-thumb"></div></div>
+      <span class="tt-icon">☀️</span>
+    </div>
+  </div>
+  <div class="hub-title">Taash</div>
+  <div class="hub-subtitle">classic Pakistani card games</div>
+  <div class="hub-byline">by Usama Khalid</div>
+  <div class="hub-cards">
+    <div class="hub-card" data-action="showScreen" data-screen="bhabhi-setup">
+      <div class="hub-card-icon">♠</div>
+      <div class="hub-card-title">Bhabhi</div>
+      <div class="hub-card-desc">Shed all your cards. The last one holding cards is the Bhabhi!</div>
+      <div class="hub-card-suits">♠ ♣ <span class="r">♥ ♦</span></div>
+    </div>
+    <div class="hub-card" data-action="showScreen" data-screen="rang-setup">
+      <div class="hub-card-icon">🃏</div>
+      <div class="hub-card-title">Rang</div>
+      <div class="hub-card-desc">Match suit or rank. Use special cards. First to empty hand wins!</div>
+      <div class="hub-card-suits">♠ ♣ <span class="r">♥ ♦</span></div>
+    </div>
+  </div>
+  <div id="hub-install-wrap" style="margin-top:24px;display:none;flex-direction:column;align-items:center;gap:8px;">
+    <button id="hub-install-btn" style="background:linear-gradient(135deg,#c9a84c,#e8c97a);border:none;border-radius:12px;padding:14px 36px;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#0d1117;cursor:pointer;box-shadow:0 4px 20px rgba(201,168,76,.35);letter-spacing:.06em;">
+      📲 Install App
+    </button>
+    <div id="hub-install-hint" style="font-size:13px;color:#7a7060;font-style:italic;text-align:center;max-width:260px;line-height:1.5;"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ BHABHI SETUP ═══════════════════ -->
+<div id="bhabhi-setup" class="screen">
+  <div class="setup-top">
+    <button class="menu-btn" data-action="showScreen" data-screen="hub-screen">← Games</button>
+    <div class="tt-wrap" data-action="toggleTheme">
+      <span class="tt-icon">🌙</span><div class="tt-track"><div class="tt-thumb"></div></div><span class="tt-icon">☀️</span>
+    </div>
+  </div>
+  <div class="game-title">Bhabhi</div>
+  <div class="game-subtitle">the art of shedding cards</div>
+  <div class="game-byline">by Usama Khalid</div>
+  <div class="setup-card">
+    <label class="setup-label">Your Name</label>
+    <input class="setup-input" id="b-player-name" type="text" placeholder="Enter your name…" maxlength="18" value="You">
+    <label class="setup-label">Computer Players</label>
+    <div class="cnt-btns" id="b-cnt-btns">
+      <button class="cnt-btn active" data-n="1" data-action="bCount" data-n="1">1</button>
+      <button class="cnt-btn" data-n="2" data-action="bCount" data-n="2">2</button>
+      <button class="cnt-btn" data-n="3" data-action="bCount" data-n="3">3</button>
+      <button class="cnt-btn" data-n="4" data-action="bCount" data-n="4">4</button>
+      <button class="cnt-btn" data-n="5" data-action="bCount" data-n="5">5</button>
+    </div>
+    <label class="setup-label">Difficulty</label>
+    <div class="diff-btns" id="b-diff-btns">
+      <button class="diff-btn easy active" data-action="bDiff" data-diff="easy"><div class="diff-label-main">Easy</div><div class="diff-label-sub">Makes mistakes</div></button>
+      <button class="diff-btn medium" data-action="bDiff" data-diff="medium"><div class="diff-label-main">Medium</div><div class="diff-label-sub">Plays smart</div></button>
+      <button class="diff-btn hard" data-action="bDiff" data-diff="hard"><div class="diff-label-main">Hard</div><div class="diff-label-sub">Ruthless</div></button>
+    </div>
+    <button class="start-btn" data-action="startBhabhi">Deal the Cards ♠</button>
+    <div class="rules-toggle" data-action="toggleEl" data-el="b-rules">How to play?</div>
+    <div class="rules-box" id="b-rules">
+      <b>Goal:</b> Be the first to get rid of all cards.<br>
+      <b>Start:</b> Whoever has the Ace of Spades plays it first.<br>
+      <b>Thoku:</b> If you can't follow suit, play any card. The current lead-holder picks up the whole pile and leads next.<br>
+      <b>Clean trick:</b> All follow suit → highest card wins, leads next. No pickup.<br>
+      <b>Bhabhi:</b> Last player holding cards loses! 😄
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ BHABHI GAME ═══════════════════ -->
+<div id="bhabhi-game" class="screen">
+  <div class="top-bar">
+    <span class="top-title">Bhabhi ♠</span>
+    <div class="top-right">
+      <div class="tt-wrap" data-action="toggleTheme"><span class="tt-icon">🌙</span><div class="tt-track"><div class="tt-thumb"></div></div><span class="tt-icon">☀️</span></div>
+      <span class="top-byline">by Usama Khalid</span>
+      <button class="menu-btn" data-action="showScreen" data-screen="hub-screen">↩ Menu</button>
+    </div>
+  </div>
+  <div class="opponents-area" id="b-opponents"></div>
+  <div class="table-area" style="margin:0 0; flex:1;">
+    <div class="table-label">Table</div>
+    <div class="trick-display" id="b-trick-display"><span style="color:var(--muted);font-style:italic;font-size:13px;">Waiting for first card…</span></div>
+    <div class="trick-result-bar" id="b-result-bar"></div>
+    <button id="b-continue-btn" data-action="bOnContinue">Next Trick ▶ <span style="font-size:11px;opacity:.7;font-weight:400;">(Enter)</span></button>
+  </div>
+  <div class="status-bar" id="b-status">Getting ready…</div>
+  <div class="player-area">
+    <div class="player-info-row">
+      <span class="player-label" id="b-player-label">You</span>
+      <span class="player-card-count" id="b-card-count"></span>
+    </div>
+    <div class="hand-row" id="b-hand"></div>
+    <div class="action-row" id="b-action"></div>
+    <div id="b-autocomplete-row" style="display:none;justify-content:center;margin-top:4px;">
+      <button class="autocomplete-btn" data-action="bAutoComplete">⚡ Auto-Complete Game</button>
+    </div>
+  </div>
+  <div class="game-footer">by Usama Khalid</div>
+</div>
+
+<!-- ═══════════════════ RANG SETUP ═══════════════════ -->
+<div id="rang-setup" class="screen">
+  <div class="setup-top">
+    <button class="menu-btn" data-action="showScreen" data-screen="hub-screen">← Games</button>
+    <div class="tt-wrap" data-action="toggleTheme">
+      <span class="tt-icon">🌙</span><div class="tt-track"><div class="tt-thumb"></div></div><span class="tt-icon">☀️</span>
+    </div>
+  </div>
+  <div class="game-title">Rang</div>
+  <div class="game-subtitle">match, stack, and dominate</div>
+  <div class="game-byline">by Usama Khalid</div>
+  <div class="setup-card">
+    <label class="setup-label">Your Name</label>
+    <input class="setup-input" id="r-player-name" type="text" placeholder="Enter your name…" maxlength="18" value="You">
+    <label class="setup-label">Computer Players</label>
+    <div class="cnt-btns" id="r-cnt-btns">
+      <button class="cnt-btn active" data-n="1" data-action="rCount" data-n="1">1</button>
+      <button class="cnt-btn" data-n="2" data-action="rCount" data-n="2">2</button>
+      <button class="cnt-btn" data-n="3" data-action="rCount" data-n="3">3</button>
+      <button class="cnt-btn" data-n="4" data-action="rCount" data-n="4">4</button>
+      <button class="cnt-btn" data-n="5" data-action="rCount" data-n="5">5</button>
+    </div>
+    <label class="setup-label">Difficulty</label>
+    <div class="diff-btns" id="r-diff-btns">
+      <button class="diff-btn easy active" data-action="rDiff" data-diff="easy"><div class="diff-label-main">Easy</div><div class="diff-label-sub">Random play</div></button>
+      <button class="diff-btn medium" data-action="rDiff" data-diff="medium"><div class="diff-label-main">Medium</div><div class="diff-label-sub">Plays smart</div></button>
+      <button class="diff-btn hard" data-action="rDiff" data-diff="hard"><div class="diff-label-main">Hard</div><div class="diff-label-sub">Ruthless</div></button>
+    </div>
+    <button class="start-btn" data-action="startRang">Deal the Cards 🃏</button>
+    <div class="rules-toggle" data-action="toggleEl" data-el="r-rules">How to play?</div>
+    <div class="rules-box" id="r-rules">
+      <b>Goal:</b> Empty your hand. The <em>last</em> player still holding cards loses!<br>
+      <b>Play:</b> Match the top discard by <em>same suit</em> or <em>same rank</em>.<br>
+      <b>Draw:</b> No valid card? Draw 1 from the pile — turn passes.<br>
+      <b>2 of any suit:</b> Next player must draw 2. Stack another 2 → 4 cards. Then 6, then 8…<br>
+      <b>10 of any suit:</b> Next player's turn is skipped.<br>
+      <b>Joker (4 — one per suit):</b> Play anytime. <em>Cancels any pending draw-stack</em> and you choose the next required suit!<br>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ RANG GAME ═══════════════════ -->
+<div id="rang-game" class="screen">
+  <div class="top-bar">
+    <span class="top-title">Rang 🃏</span>
+    <div class="top-right">
+      <div class="tt-wrap" data-action="toggleTheme"><span class="tt-icon">🌙</span><div class="tt-track"><div class="tt-thumb"></div></div><span class="tt-icon">☀️</span></div>
+      <span class="top-byline">by Usama Khalid</span>
+      <button class="menu-btn" data-action="showScreen" data-screen="hub-screen">↩ Menu</button>
+    </div>
+  </div>
+  <div class="opponents-area" id="r-opponents"></div>
+  <div class="rang-table" style="margin:0;">
+    <div class="rang-piles">
+      <div class="pile-wrap">
+        <div class="pile-label">Draw Pile</div>
+        <div class="draw-pile" id="r-draw-pile" data-action="rDrawCard">♦<div class="draw-pile-count" id="r-draw-count">52</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div class="pile-wrap">
+          <div class="pile-label">Discard</div>
+          <div id="r-discard-top"></div>
+        </div>
+        <div id="r-required-display"></div>
+      </div>
+    </div>
+    <div class="rang-draw-indicator" id="r-draw-indicator"></div>
+    <div class="suit-chooser" id="r-suit-chooser">
+      <div class="suit-chooser-title">Choose next suit</div>
+      <div class="suit-btns">
+        <button class="suit-btn" data-action="rSuit" data-suit="♠">♠</button>
+        <button class="suit-btn red" data-action="rSuit" data-suit="♥">♥</button>
+        <button class="suit-btn red" data-action="rSuit" data-suit="♦">♦</button>
+        <button class="suit-btn" data-action="rSuit" data-suit="♣">♣</button>
+      </div>
+    </div>
+  </div>
+  <div class="status-bar" id="r-status">Getting ready…</div>
+  <div class="player-area">
+    <div class="player-info-row">
+      <span class="player-label" id="r-player-label">You</span>
+      <span class="player-card-count" id="r-card-count"></span>
+    </div>
+    <div class="hand-row" id="r-hand"></div>
+    <div class="action-row" id="r-action"></div>
+  </div>
+  <div class="game-footer">by Usama Khalid</div>
+</div>
+
+<!-- GAME OVER overlays -->
+<div class="gameover-overlay" id="bhabhi-over">
+  <div class="gameover-box">
+    <div class="go-eyebrow">Game Over — Bhabhi</div>
+    <div class="go-name loser" id="b-go-name">???</div>
+    <div class="go-label">is the Bhabhi! 😅</div>
+    <div class="go-byline">Taash · by Usama Khalid</div>
+    <button class="replay-btn" data-action="startBhabhi">Play Again ♠</button>
+    <br><br>
+    <button class="replay-btn" style="background:var(--surface2);color:var(--gold);box-shadow:none;border:1px solid var(--gold);" data-action="goHub" data-overlay="bhabhi-over">Main Menu</button>
+  </div>
+</div>
+<div class="gameover-overlay" id="rang-over">
+  <div class="gameover-box">
+    <div class="go-eyebrow">Game Over — Rang</div>
+    <div class="go-name" id="r-go-name">???</div>
+    <div class="go-label" id="r-go-label">is the last one holding cards — they lose! 😅</div>
+    <div class="go-byline">Taash · by Usama Khalid</div>
+    <button class="replay-btn" data-action="startRang">Play Again 🃏</button>
+    <br><br>
+    <button class="replay-btn" style="background:var(--surface2);color:var(--gold);box-shadow:none;border:1px solid var(--gold);" data-action="goHub" data-overlay="rang-over">Main Menu</button>
+  </div>
+</div>
+
+<!-- PWA Install Banner -->
+<div id="install-banner">
+  <div class="install-icon">🃏</div>
+  <div class="install-text">
+    <div class="install-text-title">Install Taash</div>
+    <div class="install-text-sub">Play offline, anytime — add to home screen</div>
+  </div>
+  <button class="install-btn" id="install-btn">Install</button>
+  <button class="install-dismiss" id="install-dismiss">✕</button>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  DELEGATED EVENT HANDLER — works in PWA/WebView
+// ══════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', e => {
+    const el = e.target.closest('[data-action]');
+    if (!el) return;
+    const action = el.dataset.action;
+    switch(action) {
+      case 'toggleTheme':  toggleTheme(); break;
+      case 'showScreen':   showScreen(el.dataset.screen); break;
+      case 'goHub':        goHub(el.dataset.overlay); break;
+      case 'toggleEl':     toggleEl(el.dataset.el); break;
+      case 'bCount':       bSelectCount(+el.dataset.n); break;
+      case 'bDiff':        bSelectDiff(el.dataset.diff); break;
+      case 'startBhabhi':  startBhabhi(); break;
+      case 'bOnContinue':  bOnContinue(); break;
+      case 'bAutoComplete':bAutoComplete(); break;
+      case 'rCount':       rSelectCount(+el.dataset.n); break;
+      case 'rDiff':        rSelectDiff(el.dataset.diff); break;
+      case 'startRang':    startRang(); break;
+      case 'rDrawCard':    rDrawCard(); break;
+      case 'rSuit':        rChooseSuit(el.dataset.suit); break;
+    }
+  });
+
+  // Install banner buttons
+  const installBtn = document.getElementById('install-btn');
+  const dismissBtn = document.getElementById('install-dismiss');
+  if (installBtn) installBtn.addEventListener('click', async () => {
+    document.getElementById('install-banner').classList.remove('show');
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      const { outcome } = await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      if (outcome === 'accepted') showToast('Taash installed! 🎉', 3000);
+    }
+  });
+  if (dismissBtn) dismissBtn.addEventListener('click', () => {
+    document.getElementById('install-banner').classList.remove('show');
+    try { localStorage.setItem('taash-install-dismissed','1'); } catch(e){}
+  });
+});
+
+
+const SUITS    = ['♠','♥','♦','♣'];
+const RANKS    = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+const RANK_VAL = {A:14,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10,J:11,Q:12,K:13};
+const RED_S    = new Set(['♥','♦']);
+const CPU_NAMES_ALL = ['Rana Ibrahim Dogar','Ahmad Bhatti','Bilal Khadim-e-Shah','Abdullah Jutt','Haris Buisnessman'];
+
+function toggleTheme(){ document.body.classList.toggle('light'); }
+function toggleEl(id){ document.getElementById(id).classList.toggle('open'); }
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function goHub(overlayId){
+  document.getElementById(overlayId).classList.remove('active');
+  showScreen('hub-screen');
+}
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a; }
+function sameCard(a,b){ return a.rank===b.rank&&a.suit===b.suit; }
+function cv(c){ return RANK_VAL[c.rank]; }
+function makeDeck(){
+  const d=[];
+  for(const s of SUITS)for(const r of RANKS)d.push({rank:r,suit:s});
+  // Exactly 4 jokers — one per suit, wild power
+  for(const s of SUITS) d.push({rank:'JK',suit:s,isJoker:true});
+  return d; // 56 cards total
+}
+function makeDeckNoJoker(){
+  const d=[];
+  for(const s of SUITS)for(const r of RANKS)d.push({rank:r,suit:s});
+  return d; // 52 cards
+}
+function getShuffledCPUNames(n){ return shuffle([...CPU_NAMES_ALL]).slice(0,n); }
+
+let toastTmr=null;
+function showToast(msg,dur=2500){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  if(toastTmr)clearTimeout(toastTmr);
+  toastTmr=setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+function cardHTML(card, extraClass=''){
+  if(card.isJoker){
+    const isRed=RED_S.has(card.suit);
+    return `<div class="t-card joker-card ${isRed?'joker-red':''} ${extraClass}"><span class="tl">🃏<br><span style="font-size:10px">${card.suit}</span></span><span class="mid">${card.suit}</span><span class="br">🃏<br><span style="font-size:10px">${card.suit}</span></span></div>`;
+  }
+  const isRed=RED_S.has(card.suit);
+  return `<div class="t-card ${isRed?'red-suit':''} ${extraClass}">
+    <span class="tl">${card.rank}<br>${card.suit}</span>
+    <span class="mid">${card.suit}</span>
+    <span class="br">${card.rank}<br>${card.suit}</span>
+  </div>`;
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){
+    if(bState.waitContinue){ bOnContinue(); return; }
+    if(bState.G&&bState.G.currentTurn===0&&bState.selectedIdx!==null&&!bState.waitContinue){ bPlaySelected(); }
+  }
+});
+
+// ══════════════════════════════════════════════════════
+//  BHABHI — STATE + LOGIC
+// ══════════════════════════════════════════════════════
+const bState = { G:null, selectedIdx:null, waitContinue:false, cpuCount:1, diff:'easy' };
+
+function bSelectCount(n){ bState.cpuCount=n; document.querySelectorAll('#b-cnt-btns .cnt-btn').forEach(b=>b.classList.toggle('active',+b.dataset.n===n)); }
+function bSelectDiff(d){ bState.diff=d; document.querySelectorAll('#b-diff-btns .diff-btn').forEach(b=>b.classList.toggle('active',b.classList.contains(d))); }
+
+function startBhabhi(){
+  const name=document.getElementById('b-player-name').value.trim()||'You';
+  const cpuNames=getShuffledCPUNames(bState.cpuCount);
+  const players=[{id:0,name,isHuman:true,hand:[],out:false,outOrder:null}];
+  for(let i=0;i<bState.cpuCount;i++) players.push({id:i+1,name:cpuNames[i],isHuman:false,hand:[],out:false,outOrder:null});
+
+  const deck=shuffle(makeDeckNoJoker());
+  if(players.length===2){ players[0].hand=deck.slice(0,17); players[1].hand=deck.slice(17,34); }
+  else{ const per=Math.floor(52/players.length); players.forEach((p,i)=>{ p.hand=deck.slice(i*per,(i+1)*per); }); }
+
+  let startId=0;
+  for(const p of players) if(p.hand.some(c=>c.rank==='A'&&c.suit==='♠')){ startId=p.id; break; }
+
+  bState.G={ players, diff:bState.diff, trick:[], leadSuit:null, leadWinnerId:null, trickLeaderId:startId, currentTurn:startId, firstCard:true, outCount:0, finished:false };
+  bState.selectedIdx=null; bState.waitContinue=false;
+
+  document.getElementById('bhabhi-over').classList.remove('active');
+  document.getElementById('b-autocomplete-row').style.display='none';
+  bHideContinue();
+  showScreen('bhabhi-game');
+  bRenderAll();
+  bScheduleCPU();
+}
+
+function bActivePlayers(){ return bState.G.players.filter(p=>!p.out); }
+function bById(id){ return bState.G.players.find(p=>p.id===id); }
+function bNextAfter(id){ const a=bActivePlayers(); if(!a.length)return null; return a[(a.findIndex(p=>p.id===id)+1)%a.length]; }
+
+function bGetPlayable(player){
+  const G=bState.G;
+  if(G.firstCard){ const ace=player.hand.find(c=>c.rank==='A'&&c.suit==='♠'); return ace?[ace]:[]; }
+  if(G.currentTurn===G.trickLeaderId) return [...player.hand];
+  if(!G.leadSuit) return [...player.hand];
+  const suited=player.hand.filter(c=>c.suit===G.leadSuit);
+  return suited.length?suited:[...player.hand];
+}
+
+function bRecalcLeadWinner(){
+  const G=bState.G;
+  const entries=G.trick.filter(e=>e.card.suit===G.leadSuit);
+  if(!entries.length){ G.leadWinnerId=null; return; }
+  G.leadWinnerId=entries.reduce((b,e)=>cv(e.card)>cv(b.card)?e:b).playerId;
+}
+
+function bSelectCard(idx){ if(bState.G.currentTurn!==0||bState.waitContinue)return; bState.selectedIdx=(bState.selectedIdx===idx)?null:idx; bRenderHand(); }
+function bPlaySelected(){
+  if(bState.selectedIdx===null||bState.G.currentTurn!==0||bState.waitContinue)return;
+  const h=bById(0); const card=h.hand[bState.selectedIdx]; if(!card)return;
+  const playable=bGetPlayable(h); if(!playable.some(c=>sameCard(c,card))){ showToast('Cannot play that card!'); return; }
+  bDoPlay(0,card); bState.selectedIdx=null;
+}
+
+function bDoPlay(playerId, card){
+  const G=bState.G;
+  const player=bById(playerId);
+  player.hand=player.hand.filter(c=>!sameCard(c,card));
+  if(G.trick.length===0) G.leadSuit=card.suit;
+  const isThoku=(G.leadSuit&&card.suit!==G.leadSuit);
+  G.trick.push({playerId,card});
+  G.firstCard=false;
+  if(!player.out&&player.hand.length===0){ player.out=true; player.outOrder=++G.outCount; showToast(`${player.name} is out! 🎉`); }
+
+  if(bActivePlayers().length===1){ setTimeout(()=>bEndGame(bActivePlayers()[0]),500); bRenderAll(); return; }
+
+  if(isThoku){
+    // Current lead winner picks up the pile
+    const pikerId=G.leadWinnerId??playerId;
+    const piker=bById(pikerId);
+    const allCards=G.trick.map(e=>e.card);
+    if(piker&&!piker.out){ piker.hand.push(...allCards); G.trickLeaderId=pikerId; G.currentTurn=pikerId; }
+    else{ const abs=bNextAfter(pikerId); if(abs){ abs.hand.push(...allCards); G.trickLeaderId=abs.id; G.currentTurn=abs.id; } }
+    const pikerName=bById(G.trickLeaderId)?.name??'?';
+    bShowResult(`<span class="bad">Thoku!</span> <span class="hi">${pikerName}</span> picks up the pile and leads next.`);
+    G.trick=[]; G.leadSuit=null; G.leadWinnerId=null;
+    if(bActivePlayers().length===1){ setTimeout(()=>bEndGame(bActivePlayers()[0]),600); bRenderAll(); return; }
+    bEndTrickPhase(); return;
+  }
+
+  bRecalcLeadWinner();
+  const active=bActivePlayers();
+  const allPlayed=active.every(p=>G.trick.some(e=>e.playerId===p.id));
+  if(allPlayed){
+    const winner=bById(G.leadWinnerId);
+    const wName=winner?.name??'?';
+    bShowResult(`<span class="hi">${wName}</span> wins the trick and leads next.`);
+    G.trickLeaderId=(winner&&!winner.out)?winner.id:(bNextAfter(winner?.id??G.currentTurn)?.id??G.currentTurn);
+    G.currentTurn=G.trickLeaderId;
+    G.trick=[]; G.leadSuit=null; G.leadWinnerId=null;
+    if(bActivePlayers().length===1){ setTimeout(()=>bEndGame(bActivePlayers()[0]),600); bRenderAll(); return; }
+    bEndTrickPhase();
+  } else {
+    G.currentTurn=bNextAfter(playerId).id;
+    bRenderAll(); bScheduleCPU();
+  }
+}
+
+function bShowResult(html){ const b=document.getElementById('b-result-bar'); b.innerHTML=html; b.classList.add('visible'); }
+function bHideResult(){ document.getElementById('b-result-bar').classList.remove('visible'); }
+function bShowContinue(){ const b=document.getElementById('b-continue-btn'); b.classList.add('visible'); }
+function bHideContinue(){ const b=document.getElementById('b-continue-btn'); b.classList.remove('visible'); }
+function bEndTrickPhase(){ bState.waitContinue=true; bRenderAll(); bShowContinue(); }
+function bOnContinue(){
+  if(!bState.waitContinue)return;
+  bState.waitContinue=false; bHideContinue(); bHideResult();
+  const G=bState.G;
+  if(!bActivePlayers().find(p=>p.id===G.currentTurn)){ const np=bNextAfter(G.currentTurn); if(np){G.currentTurn=np.id;G.trickLeaderId=np.id;} }
+  bRenderAll(); bScheduleCPU();
+}
+
+// CPU AI
+function bScheduleCPU(){ if(bState.G.finished||bState.waitContinue)return; const cur=bById(bState.G.currentTurn); if(cur&&!cur.isHuman&&!cur.out) setTimeout(()=>bCPUTurn(cur),900); }
+function bCPUTurn(player){ if(bState.G.currentTurn!==player.id||bState.G.finished||bState.waitContinue)return; const pl=bGetPlayable(player); if(!pl.length)return; bDoPlay(player.id,bCPUChoose(player,pl)); }
+
+function bCPUChoose(player,playable){
+  const G=bState.G; const diff=G.diff;
+  if(G.firstCard) return playable[0];
+  if(G.currentTurn===G.trickLeaderId) return bCPULead(player,playable,diff);
+  const hasSuit=player.hand.some(c=>c.suit===G.leadSuit);
+  return hasSuit?bCPUFollow(player,playable,diff):bCPUThoku(player,playable,diff);
+}
+
+function bCPULead(player,playable,diff){
+  if(diff==='easy') return playable[Math.floor(Math.random()*playable.length)];
+  const sc={}; SUITS.forEach(s=>sc[s]=player.hand.filter(c=>c.suit===s).length);
+  const sorted=[...playable].sort((a,b)=>{ const d=sc[a.suit]-sc[b.suit]; return d!==0?d:cv(a)-cv(b); });
+  if(diff==='hard'){
+    const safe=sorted.filter(c=>{ const sc2=player.hand.filter(x=>x.suit===c.suit); return sc2.length===1||cv(c)<Math.max(...sc2.map(cv)); });
+    return safe.length?safe[0]:sorted[0];
+  }
+  return sorted[0];
+}
+function bCPUFollow(player,playable,diff){
+  const highVal=bState.G.leadWinnerId!==null?cv(bState.G.trick.find(e=>e.playerId===bState.G.leadWinnerId).card):0;
+  if(diff==='easy'&&Math.random()<0.4) return playable[Math.floor(Math.random()*playable.length)];
+  const safeBelow=playable.filter(c=>cv(c)<highVal).sort((a,b)=>cv(b)-cv(a));
+  const beaters=playable.filter(c=>cv(c)>highVal).sort((a,b)=>cv(a)-cv(b));
+  if(diff==='easy'){ return safeBelow.length?safeBelow[Math.floor(Math.random()*safeBelow.length)]:(beaters.length?beaters[0]:playable.reduce((b,c)=>cv(c)<cv(b)?c:b)); }
+  if(diff==='medium'){ return safeBelow.length?safeBelow[0]:(beaters.length?beaters[0]:playable.reduce((b,c)=>cv(c)<cv(b)?c:b)); }
+  const stillToPlay=bActivePlayers().filter(p=>!bState.G.trick.some(e=>e.playerId===p.id)).length;
+  if(safeBelow.length){ return stillToPlay>1?safeBelow[0]:(beaters.length?beaters[beaters.length-1]:safeBelow[0]); }
+  return beaters.length?beaters[0]:playable.reduce((b,c)=>cv(c)<cv(b)?c:b);
+}
+function bCPUThoku(player,playable,diff){
+  if(diff==='easy') return playable[Math.floor(Math.random()*playable.length)];
+  const sc={}; SUITS.forEach(s=>sc[s]=player.hand.filter(c=>c.suit===s).length);
+  if(diff==='medium') return playable.reduce((b,c)=>cv(c)>cv(b)?c:b);
+  return [...playable].sort((a,b)=>{ const d=sc[b.suit]-sc[a.suit]; return d!==0?d:cv(b)-cv(a); })[0];
+}
+
+function bAutoComplete(){
+  if(bState.G.finished)return;
+  document.getElementById('b-autocomplete-row').style.display='none';
+  let safety=0;
+  while(!bState.G.finished&&safety++<5000){
+    const G=bState.G;
+    if(bState.waitContinue){ bState.waitContinue=false; bHideContinue(); bHideResult(); if(!bActivePlayers().find(p=>p.id===G.currentTurn)){const np=bNextAfter(G.currentTurn);if(np){G.currentTurn=np.id;G.trickLeaderId=np.id;}} continue; }
+    const cur=bById(G.currentTurn);
+    if(!cur||cur.out){const np=bNextAfter(G.currentTurn);if(!np)break;G.currentTurn=np.id;continue;}
+    const pl=bGetPlayable(cur); if(!pl.length)break;
+    bDoPlay(cur.id,bCPUChoose(cur,pl));
+  }
+  bRenderAll();
+}
+
+// Render
+function bRenderAll(){ bRenderOpponents(); bRenderTrick(); bRenderHand(); bRenderStatus(); }
+
+function bRenderOpponents(){
+  const area=document.getElementById('b-opponents'); area.innerHTML='';
+  const G=bState.G;
+  G.players.filter(p=>!p.isHuman).forEach(p=>{
+    const isTurn=p.id===G.currentTurn&&!p.out&&!bState.waitContinue;
+    const isLast=bActivePlayers().length===1&&bActivePlayers()[0].id===p.id;
+    const div=document.createElement('div');
+    div.className='opponent-panel'+(isTurn?' active-turn':'')+(p.out?' out':'')+(isLast&&!p.out?' danger':'');
+    let badge=''; if(p.out) badge=`<div class="badge badge-out">Out #${p.outOrder}</div>`; else if(isLast) badge=`<div class="badge badge-danger">Bhabhi?</div>`;
+    const n=Math.min(p.hand.length,8); let backs='<div class="opp-cards">';
+    for(let i=0;i<n;i++) backs+=`<div class="card-back"></div>`; backs+='</div>';
+    div.innerHTML=`${badge}<div class="opponent-name">${isTurn?'<span class="turn-dot"></span>':''}${p.name}</div><div class="opponent-card-count">${p.out?'Finished!':p.hand.length+' card'+(p.hand.length!==1?'s':'')}</div>${p.out?'':backs}`;
+    area.appendChild(div);
+  });
+}
+
+function bRenderTrick(){
+  const div=document.getElementById('b-trick-display'); const G=bState.G;
+  if(!G.trick.length){ div.innerHTML=`<span style="color:var(--muted);font-style:italic;font-size:13px;">Table is empty…</span>`; return; }
+  div.innerHTML='';
+  G.trick.forEach(entry=>{
+    const pName=bById(entry.playerId)?.name??'?';
+    const isRed=RED_S.has(entry.card.suit); const isThk=G.leadSuit&&entry.card.suit!==G.leadSuit;
+    const isWin=entry.playerId===G.leadWinnerId&&!G.trick.some(e=>e.card.suit!==G.leadSuit);
+    const slot=document.createElement('div'); slot.className='trick-slot';
+    slot.innerHTML=`<div class="trick-slot-name">${pName}</div><div class="t-card ${isRed?'red-suit':''} ${isThk?'thoku-card':''} ${isWin?'lead-win':''}"><span class="tl">${entry.card.rank}<br>${entry.card.suit}</span><span class="mid">${entry.card.suit}</span><span class="br">${entry.card.rank}<br>${entry.card.suit}</span></div>`;
+    div.appendChild(slot);
+  });
+}
+
+function bRenderHand(){
+  const G=bState.G; const human=bById(0);
+  document.getElementById('b-player-label').textContent=human.name;
+  document.getElementById('b-card-count').textContent=human.out?'Finished! 🎉':`${human.hand.length} card${human.hand.length!==1?'s':''}`;
+  const handRow=document.getElementById('b-hand'); const actionRow=document.getElementById('b-action');
+  handRow.innerHTML=''; actionRow.innerHTML='';
+  if(human.out){ handRow.innerHTML=`<span style="color:var(--green);font-style:italic;font-size:15px;">You're out — watching the rest!</span>`; document.getElementById('b-autocomplete-row').style.display='flex'; return; }
+  document.getElementById('b-autocomplete-row').style.display='none';
+  const isMyTurn=G.currentTurn===0&&!bState.waitContinue;
+  const playable=isMyTurn?bGetPlayable(human):[];
+  const sorted=[...human.hand].sort((a,b)=>{ const sd=SUITS.indexOf(a.suit)-SUITS.indexOf(b.suit); return sd!==0?sd:cv(a)-cv(b); });
+  sorted.forEach(card=>{
+    const origIdx=human.hand.indexOf(card); const canPlay=isMyTurn&&playable.some(c=>sameCard(c,card));
+    const el=document.createElement('div');
+    el.className=`play-card ${RED_S.has(card.suit)?'red-suit':''} ${bState.selectedIdx===origIdx?'selected':''} ${(!isMyTurn||!canPlay)?'disabled':''}`;
+    el.innerHTML=`<span class="tl">${card.rank}<br>${card.suit}</span><span class="mid">${card.suit}</span><span class="br">${card.rank}<br>${card.suit}</span>`;
+    if(isMyTurn&&canPlay){ el.onclick=()=>bSelectCard(origIdx); el.ondblclick=()=>{bSelectCard(origIdx);bPlaySelected();}; }
+    handRow.appendChild(el);
+  });
+  if(isMyTurn){ const btn=document.createElement('button'); btn.className='play-btn'; btn.textContent='Play Card ♠'; btn.disabled=bState.selectedIdx===null; btn.onclick=bPlaySelected; actionRow.appendChild(btn); }
+}
+
+function bRenderStatus(){
+  const bar=document.getElementById('b-status'); const G=bState.G;
+  if(G.finished){bar.innerHTML='Game over!';return;}
+  if(bState.waitContinue){bar.innerHTML=`Press <span class="hi">Next Trick</span> or <span class="hi">Enter</span> to continue.`;return;}
+  if(G.currentTurn===0){
+    const h=bById(0);
+    if(G.firstCard) bar.innerHTML=`<span class="turn-dot"></span> Play your <span class="hi">Ace of Spades ♠</span> to begin!`;
+    else if(G.currentTurn===G.trickLeaderId) bar.innerHTML=`<span class="turn-dot"></span> You lead — play any card.`;
+    else if(h.hand.some(c=>c.suit===G.leadSuit)) bar.innerHTML=`<span class="turn-dot"></span> Follow suit — play a <span class="hi">${G.leadSuit}</span>.`;
+    else{ const lw=G.leadWinnerId!==null?bById(G.leadWinnerId)?.name:'?'; bar.innerHTML=`<span class="turn-dot"></span> No <span class="hi">${G.leadSuit}</span>! Thoku — <span class="warn">${lw}</span> picks up &amp; leads next.`; }
+  } else bar.innerHTML=`Waiting for <span class="hi">${bById(G.currentTurn)?.name}…</span>`;
+}
+
+function bEndGame(loser){ bState.G.finished=true; document.getElementById('b-go-name').textContent=loser.name; document.getElementById('bhabhi-over').classList.add('active'); }
+
+// ══════════════════════════════════════════════════════
+//  RANG — STATE + LOGIC
+// ══════════════════════════════════════════════════════
+const R = {
+  players:[], deck:[], discard:[], currentTurn:0,
+  requiredSuit:null,
+  pendingDraw:0,      // cumulative cards next player must draw (stacked 2s)
+  skipNext:false,
+  waitingJoker:false, // waiting for suit choice after joker
+  jokerPlayerId:null,
+  jokerNullified:false, // joker was used to cancel a 2-stack
+  finishedPlayers:[], // ordered list of players who emptied hand
+  finished:false, diff:'easy', cpuCount:1
+};
+
+function rSelectCount(n){ R.cpuCount=n; document.querySelectorAll('#r-cnt-btns .cnt-btn').forEach(b=>b.classList.toggle('active',+b.dataset.n===n)); }
+function rSelectDiff(d){ R.diff=d; document.querySelectorAll('#r-diff-btns .diff-btn').forEach(b=>b.classList.toggle('active',b.classList.contains(d))); }
+
+function rActivePlayers(){ return R.players.filter(p=>!R.finishedPlayers.includes(p.id)); }
+function rNextActive(from){
+  const active=rActivePlayers();
+  if(!active.length) return from;
+  const cur=active.findIndex(p=>p.id===from);
+  return active[(cur+1)%active.length].id;
+}
+function rSkipActive(from){
+  // skip TWO players in active list
+  const active=rActivePlayers();
+  if(!active.length) return from;
+  const cur=active.findIndex(p=>p.id===from);
+  return active[(cur+2)%active.length].id;
+}
+
+function startRang(){
+  const name=document.getElementById('r-player-name').value.trim()||'You';
+  const cpuNames=getShuffledCPUNames(R.cpuCount);
+  R.players=[{id:0,name,isHuman:true,hand:[]}];
+  for(let i=0;i<R.cpuCount;i++) R.players.push({id:i+1,name:cpuNames[i],isHuman:false,hand:[]});
+  R.finished=false; R.requiredSuit=null; R.pendingDraw=0; R.skipNext=false;
+  R.waitingJoker=false; R.jokerPlayerId=null; R.jokerNullified=false; R.finishedPlayers=[];
+
+  const deck=shuffle(makeDeck()); // 52 + 4 suit jokers = 56 cards
+  R.players.forEach((p,i)=>{ p.hand=deck.slice(i*6,(i+1)*6); });
+  R.deck=deck.slice(6*R.players.length);
+
+  // First discard — never a joker
+  let startCard=R.deck.shift();
+  while(startCard.isJoker){ R.deck.push(startCard); startCard=R.deck.shift(); }
+  R.discard=[startCard];
+  R.requiredSuit=startCard.suit;
+  R.currentTurn=0;
+
+  document.getElementById('rang-over').classList.remove('active');
+  showScreen('rang-game');
+  rRenderAll();
+  rScheduleCPU();
+}
+
+function rTopDiscard(){ return R.discard[R.discard.length-1]; }
+
+// What cards can this player legally play right now?
+function rIsPlayable(card){
+  // Joker — always playable (wild + nullify)
+  if(card.isJoker) return true;
+  // 2 — always playable (attack card, no suit/rank restriction)
+  if(card.rank==='2') return true;
+  // If there's a pending 2-stack, only jokers and 2s can counter (handled above)
+  if(R.pendingDraw>0) return false;
+  // Normal card: must match required suit OR match rank of top discard
+  const top=rTopDiscard();
+  return card.suit===R.requiredSuit || (!top.isJoker && card.rank===top.rank);
+}
+
+function rDrawCards(player,n){
+  for(let i=0;i<n;i++){
+    if(!R.deck.length){
+      R.deck=shuffle(R.discard.slice(0,-1));
+      R.discard=[R.discard[R.discard.length-1]];
+    }
+    if(R.deck.length) player.hand.push(R.deck.shift());
+  }
+}
+
+// ── Human actions ──────────────────────────
+function rPlayCard(cardIdx){
+  if(R.currentTurn!==0||R.waitingJoker||R.finished)return;
+  const player=R.players[0]; const card=player.hand[cardIdx];
+  if(!rIsPlayable(card)){ showToast('Cannot play that card!'); return; }
+  player.hand.splice(cardIdx,1);
+  rApplyCard(card,0);
+}
+
+function rDrawCard(){
+  if(R.currentTurn!==0||R.waitingJoker||R.finished)return;
+  const player=R.players[0];
+  if(R.pendingDraw>0){
+    rDrawCards(player,R.pendingDraw);
+    showToast(`You draw ${R.pendingDraw} cards! 😬`);
+    R.pendingDraw=0;
+    rAdvanceTurn(0); return;
+  }
+  rDrawCards(player,1);
+  showToast('Drew 1 card — turn passes');
+  rAdvanceTurn(0);
+}
+
+// ── Core card application ──────────────────
+function rApplyCard(card, playerId){
+  R.discard.push(card);
+  const player=R.players.find(p=>p.id===playerId);
+
+  if(card.isJoker){
+    // JOKER — nullifies any pending 2-stack AND player chooses next required suit
+    if(R.pendingDraw>0){
+      R.jokerNullified=true;
+      R.pendingDraw=0; // cancelled!
+      showToast('🃏 Joker nullifies the draw stack!',2000);
+    }
+    R.waitingJoker=true; R.jokerPlayerId=playerId;
+    if(playerId===0){
+      document.getElementById('r-suit-chooser').classList.add('visible');
+      rRenderAll(); return;
+    } else {
+      const suit=rCPUChooseSuit(player);
+      setTimeout(()=>rChooseSuit(suit),700); return;
+    }
+  }
+
+  // Not a joker — set required suit
+  R.requiredSuit=card.suit;
+  R.jokerNullified=false;
+
+  if(card.rank==='2'){
+    // Stack! Each 2 adds 2 more
+    R.pendingDraw+=2;
+    rCheckHandEmpty(player,playerId);
+    rAdvanceTurn(playerId); return;
+  }
+
+  if(card.rank==='10'){
+    R.skipNext=true;
+    rCheckHandEmpty(player,playerId);
+    rAdvanceTurn(playerId); return;
+  }
+
+  rCheckHandEmpty(player,playerId);
+  if(R.finished) return;
+  rAdvanceTurn(playerId);
+}
+
+function rCheckHandEmpty(player, playerId){
+  if(player.hand.length===0 && !R.finishedPlayers.includes(playerId)){
+    R.finishedPlayers.push(playerId);
+    showToast(`${player.name} is out! 🎉`,2000);
+    const remaining=rActivePlayers();
+    if(remaining.length===1){
+      // Last player loses
+      setTimeout(()=>rEndGame(remaining[0]),600);
+    }
+  }
+}
+
+// ── Joker suit chosen ──────────────────────
+function rChooseSuit(suit){
+  document.getElementById('r-suit-chooser').classList.remove('visible');
+  R.requiredSuit=suit; R.waitingJoker=false;
+  const pid=R.jokerPlayerId;
+  const player=R.players.find(p=>p.id===pid);
+  rCheckHandEmpty(player,pid);
+  if(R.finished) return;
+  rAdvanceTurn(pid); rRenderAll(); rScheduleCPU();
+}
+
+// ── Turn advancement ───────────────────────
+function rAdvanceTurn(fromId){
+  if(R.finished) return;
+  let next=rNextActive(fromId);
+  const nextPlayer=R.players.find(p=>p.id===next);
+
+  if(R.skipNext){
+    showToast(`${nextPlayer.name} is skipped!`);
+    R.skipNext=false;
+    next=rNextActive(next);
+  }
+
+  // If next player has pending draw and can't counter — apply immediately for CPU flow
+  R.currentTurn=next;
+  rRenderAll(); rScheduleCPU();
+}
+
+// ── CPU logic ─────────────────────────────
+function rScheduleCPU(){
+  if(R.finished||R.waitingJoker)return;
+  const cur=R.players[R.currentTurn];
+  if(cur&&!cur.isHuman&&!R.finishedPlayers.includes(cur.id))
+    setTimeout(()=>rCPUTurn(cur),900);
+}
+
+function rCPUTurn(player){
+  if(R.currentTurn!==player.id||R.finished||R.waitingJoker)return;
+  const diff=R.diff;
+
+  // Pending 2-stack — can counter with joker or another 2 (both always playable)
+  if(R.pendingDraw>0){
+    const jokers=player.hand.filter(c=>c.isJoker);
+    const twos=player.hand.filter(c=>c.rank==='2');
+    if(jokers.length&&diff==='hard'){ rCPUPlay(player,jokers[0]); return; }
+    if(twos.length&&(diff==='medium'||diff==='hard')){ rCPUPlay(player,twos[0]); return; }
+    if(jokers.length&&diff==='medium'){ rCPUPlay(player,jokers[0]); return; }
+    // Take the hit
+    rDrawCards(player,R.pendingDraw);
+    showToast(`${player.name} draws ${R.pendingDraw} cards! 😬`);
+    R.pendingDraw=0;
+    rAdvanceTurn(player.id); return;
+  }
+
+  const valid=player.hand.filter(c=>rIsPlayable(c));
+  if(!valid.length){
+    rDrawCards(player,1);
+    showToast(`${player.name} draws 1 card`);
+    rAdvanceTurn(player.id); return;
+  }
+  rCPUPlay(player, rCPUPickCard(player,valid,diff));
+}
+
+function rCPUPlay(player,card){ player.hand=player.hand.filter(c=>!sameCard(c,card)); rApplyCard(card,player.id); }
+
+function rCPUPickCard(player,valid,diff){
+  if(diff==='easy') return valid[Math.floor(Math.random()*valid.length)];
+  // Last card = instant win
+  if(player.hand.length===1) return valid[0];
+  // Hard: prefer attack cards first
+  if(diff==='hard'){
+    const twos=valid.filter(c=>c.rank==='2');
+    if(twos.length) return twos[0];
+    const tens=valid.filter(c=>c.rank==='10');
+    if(tens.length) return tens[0];
+  }
+  // Save jokers unless no other valid card
+  const nonJokers=valid.filter(c=>!c.isJoker);
+  if(nonJokers.length) return rCPUPickBest(player,nonJokers);
+  return valid[0];
+}
+
+function rCPUPickBest(player,valid){
+  const sc={}; SUITS.forEach(s=>sc[s]=player.hand.filter(c=>!c.isJoker&&c.suit===s).length);
+  return [...valid].sort((a,b)=>sc[b.suit]-sc[a.suit])[0];
+}
+
+function rCPUChooseSuit(player){
+  const sc={}; SUITS.forEach(s=>sc[s]=player.hand.filter(c=>!c.isJoker&&c.suit===s).length);
+  return SUITS.reduce((best,s)=>sc[s]>sc[best]?s:best,SUITS[0]);
+}
+
+function rEndGame(loser){
+  R.finished=true;
+  document.getElementById('r-go-name').textContent=loser.name;
+  document.getElementById('r-go-name').className='go-name loser';
+  document.getElementById('r-go-label').textContent=`is the last one holding cards — they lose! 😅`;
+  document.getElementById('rang-over').classList.add('active');
+}
+
+// Rang Render
+function rRenderAll(){ rRenderOpponents(); rRenderTable(); rRenderHand(); rRenderStatus(); }
+
+function rRenderOpponents(){
+  const area=document.getElementById('r-opponents'); area.innerHTML='';
+  R.players.filter(p=>!p.isHuman).forEach(p=>{
+    const isDone=R.finishedPlayers.includes(p.id);
+    const isTurn=p.id===R.currentTurn&&!R.waitingJoker&&!R.finished&&!isDone;
+    const div=document.createElement('div');
+    div.className='opponent-panel'+(isTurn?' active-turn':'')+(isDone?' out':'');
+    const n=Math.min(p.hand.length,8); let backs='<div class="opp-cards">';
+    for(let i=0;i<n;i++) backs+=`<div class="card-back"></div>`; backs+='</div>';
+    const rank=R.finishedPlayers.indexOf(p.id)+1;
+    let badge='';
+    if(isDone) badge=`<div class="badge badge-win">#${rank} Out!</div>`;
+    else if(p.hand.length===1) badge=`<div class="badge badge-danger">1 left!</div>`;
+    div.innerHTML=`${badge}<div class="opponent-name">${isTurn?'<span class="turn-dot"></span>':''}${p.name}</div><div class="opponent-card-count">${isDone?'Finished!':p.hand.length+' card'+(p.hand.length!==1?'s':'')}</div>${isDone?'':backs}`;
+    area.appendChild(div);
+  });
+}
+
+function rRenderTable(){
+  const top=rTopDiscard();
+  const isRed=top&&!top.isJoker&&RED_S.has(top.suit);
+  let html='';
+  if(top){
+    if(top.isJoker){
+      const isRed=RED_S.has(top.suit);
+      html=`<div class="top-discard play-card joker-card ${isRed?'joker-red':''}" style="cursor:default;"><span class="tl">🃏<br><span style="font-size:10px">${top.suit}</span></span><span class="mid">${top.suit}</span><span class="br">🃏<br><span style="font-size:10px">${top.suit}</span></span></div>`;
+    }
+    else html=`<div class="top-discard play-card ${isRed?'red-suit':''}" style="cursor:default;"><span class="tl">${top.rank}<br>${top.suit}</span><span class="mid">${top.suit}</span><span class="br">${top.rank}<br>${top.suit}</span></div>`;
+  }
+  document.getElementById('r-discard-top').innerHTML=html;
+  document.getElementById('r-draw-count').textContent=R.deck.length;
+  const dp=document.getElementById('r-draw-pile');
+  dp.classList.toggle('disabled',R.currentTurn!==0||R.waitingJoker||R.finished||R.finishedPlayers.includes(0));
+  // Required suit display
+  let reqHtml='';
+  if(R.requiredSuit){
+    const isRedS=RED_S.has(R.requiredSuit);
+    reqHtml=`<div class="rang-required"><span>Required suit:</span><span class="rang-req-suit ${isRedS?'red-suit':''}">${R.requiredSuit}</span></div>`;
+  }
+  document.getElementById('r-required-display').innerHTML=reqHtml;
+  // Draw indicator
+  let drawHtml='';
+  if(R.pendingDraw>0) drawHtml=`⚠ Next player must draw ${R.pendingDraw} card${R.pendingDraw>1?'s':''}!`;
+  document.getElementById('r-draw-indicator').textContent=drawHtml;
+}
+
+function rRenderHand(){
+  const player=R.players[0];
+  document.getElementById('r-player-label').textContent=player.name;
+  document.getElementById('r-card-count').textContent=`${player.hand.length} card${player.hand.length!==1?'s':''}`;
+  const handRow=document.getElementById('r-hand'); const actionRow=document.getElementById('r-action');
+  handRow.innerHTML=''; actionRow.innerHTML='';
+  if(player.hand.length===0){
+    const rank=R.finishedPlayers.indexOf(0)+1;
+    handRow.innerHTML=`<span style="color:var(--green);font-style:italic;">You finished #${rank}! Waiting for the last player… 🎉</span>`;
+    return;
+  }
+  const isMyTurn=R.currentTurn===0&&!R.waitingJoker&&!R.finished;
+  const sorted=[...player.hand].sort((a,b)=>{
+    if(a.isJoker&&!b.isJoker)return 1; if(!a.isJoker&&b.isJoker)return-1;
+    const sd=SUITS.indexOf(a.suit)-SUITS.indexOf(b.suit); return sd!==0?sd:cv(a)-cv(b);
+  });
+  sorted.forEach(card=>{
+    const origIdx=player.hand.indexOf(card);
+    const canPlay=isMyTurn&&rIsPlayable(card);
+    const el=document.createElement('div');
+    if(card.isJoker){
+      const isRed=RED_S.has(card.suit);
+      el.className=`play-card joker-card ${isRed?'joker-red':''} ${!canPlay||!isMyTurn?'disabled':''}`;
+      el.innerHTML=`<span class="tl">🃏<br><span style="font-size:9px">${card.suit}</span></span><span class="mid">${card.suit}</span><span class="br">🃏<br><span style="font-size:9px">${card.suit}</span></span>`;
+    } else el.className=`play-card ${RED_S.has(card.suit)?'red-suit':''} ${!canPlay||!isMyTurn?'disabled':''}`;
+    if(!card.isJoker) el.innerHTML=`<span class="tl">${card.rank}<br>${card.suit}</span><span class="mid">${card.suit}</span><span class="br">${card.rank}<br>${card.suit}</span>`;
+    if(isMyTurn&&canPlay){ el.onclick=()=>rPlayCard(origIdx); el.ondblclick=()=>rPlayCard(origIdx); }
+    handRow.appendChild(el);
+  });
+}
+
+function rRenderStatus(){
+  const bar=document.getElementById('r-status');
+  if(R.finished){bar.innerHTML='Game over!';return;}
+  if(R.waitingJoker&&R.currentTurn===0){bar.innerHTML=`<span class="turn-dot"></span> 🃏 <span class="hi">Joker played!</span> Choose the next required suit.`;return;}
+  if(R.currentTurn===0){
+    const humanDone=R.finishedPlayers.includes(0);
+    if(humanDone){ bar.innerHTML=`<span class="good">You finished! Waiting for others…</span>`; return; }
+    if(R.pendingDraw>0) bar.innerHTML=`<span class="turn-dot"></span> Draw <span class="warn">${R.pendingDraw} cards</span>, play any <span class="hi">2</span> to stack, or play a <span class="hi">🃏 Joker</span> to cancel!`;
+    else bar.innerHTML=`<span class="turn-dot"></span> Your turn — play a matching card or draw from pile.`;
+  } else {
+    const cur=R.players[R.currentTurn];
+    bar.innerHTML=`Waiting for <span class="hi">${cur?.name}…</span>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════
+//  PWA — Service Worker + Install
+// ══════════════════════════════════════════════════════
+let deferredInstallPrompt = null;
+
+// Register service worker
+// Register inline service worker (no external sw.js file needed)
+if ('serviceWorker' in navigator) {
+  const swCode = `
+const CACHE='taash-v2';
+const LOCAL=['/'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(LOCAL)));self.skipWaiting();});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
+self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>{if(r)return r;return fetch(e.request).then(res=>{if(e.request.method==='GET'&&res.status===200){const cl=res.clone();caches.open(CACHE).then(c=>c.put(e.request,cl));}return res;}).catch(()=>caches.match('/'));})});});
+`;
+  const swBlob = new Blob([swCode], {type:'application/javascript'});
+  const swURL = URL.createObjectURL(swBlob);
+  navigator.serviceWorker.register(swURL, {scope: '/'}).catch(()=>{});
+}
+
+function showInstallUI() {
+  const wrap = document.getElementById('hub-install-wrap');
+  if (wrap) wrap.style.display = 'flex';
+}
+
+function hideInstallUI() {
+  const wrap = document.getElementById('hub-install-wrap');
+  if (wrap) wrap.style.display = 'none';
+}
+
+// Android / Chrome — capture install prompt
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  const hint = document.getElementById('hub-install-hint');
+  if (hint) hint.textContent = 'Install Taash on your home screen for offline play';
+  showInstallUI();
+  // Also show bottom banner
+  document.getElementById('install-banner').classList.add('show');
+});
+
+// Handle hub install button click
+document.addEventListener('DOMContentLoaded', () => {
+  const hubBtn = document.getElementById('hub-install-btn');
+  if (hubBtn) {
+    hubBtn.addEventListener('click', async () => {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        const { outcome } = await deferredInstallPrompt.userChoice;
+        deferredInstallPrompt = null;
+        if (outcome === 'accepted') {
+          hideInstallUI();
+          showToast('Taash installed! 🎉', 3000);
+        }
+      }
+    });
+  }
+
+  // Detect platform and show appropriate hint
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isAndroid = /android/i.test(navigator.userAgent);
+  const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+
+  if (isStandalone) {
+    // Already installed — hide install UI
+    hideInstallUI();
+    return;
+  }
+
+  if (isIOS) {
+    // iOS Safari — no beforeinstallprompt, show manual instructions
+    const hint = document.getElementById('hub-install-hint');
+    const btn  = document.getElementById('hub-install-btn');
+    if (hint) hint.textContent = 'Tap Share (⬆) in Safari → "Add to Home Screen"';
+    if (btn)  btn.textContent = '📲 How to Install (iOS)';
+    if (btn)  btn.addEventListener('click', () => {
+      showToast('Tap Share ⬆ → "Add to Home Screen" in Safari', 5000);
+    }, { once: true });
+    showInstallUI();
+    return;
+  }
+
+  if (isAndroid) {
+    // Android — beforeinstallprompt will fire if criteria met
+    // Show a hint button immediately, it will be upgraded when prompt fires
+    const hint = document.getElementById('hub-install-hint');
+    const btn  = document.getElementById('hub-install-btn');
+    if (hint) hint.textContent = 'Loading install option…';
+    if (btn) btn.style.opacity = '0.6';
+    showInstallUI();
+    // If no prompt fires within 2s, show Chrome instructions
+    setTimeout(() => {
+      if (!deferredInstallPrompt) {
+        if (hint) hint.textContent = 'In Chrome: tap ⋮ menu → "Add to Home Screen"';
+        if (btn) { btn.style.opacity = '1'; btn.textContent = '📲 Install Instructions'; }
+        if (btn) btn.addEventListener('click', () => {
+          showToast('Chrome menu (⋮) → "Add to Home screen"', 5000);
+        }, { once: true });
+      } else {
+        if (btn) btn.style.opacity = '1';
+      }
+    }, 2000);
+    return;
+  }
+
+  // Desktop or other — show if prompt available
+  // beforeinstallprompt will handle showing
+});
+
+window.addEventListener('appinstalled', () => {
+  hideInstallUI();
+  document.getElementById('install-banner').classList.remove('show');
+  deferredInstallPrompt = null;
+  showToast('Taash installed! 🎉', 3000);
+});
+
+
+</body>
+</html>
